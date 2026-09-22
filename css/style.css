@@ -1,0 +1,782 @@
+@import url("https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500;6..96,600&family=Inter:wght@300;400;500;600&display=swap");
+
+:root {
+  --black: #0d0d0d;
+  --off-white: #f4f2ed;
+  --silver: #b8c0c4;
+  --silver-dark: #8d9298;
+  --white: #ffffff;
+  --muted: #cbc8c2;
+  --border: rgba(184, 192, 196, 0.45);
+  --border-dark: rgba(255, 255, 255, 0.17);
+  --section-padding: clamp(5rem, 8vw, 10rem);
+  --side-padding: clamp(1.25rem, 4vw, 5rem);
+  --transition: 280ms ease;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--black);
+  color: var(--off-white);
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body.locked {
+  overflow: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  background: #171717;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+.site-header {
+  position: fixed;
+  inset: 0 0 auto 0;
+  width: 100%;
+  min-height: 72px;
+  padding: 0 var(--side-padding);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  z-index: 1000;
+  border-bottom: 1px solid transparent;
+  transition:
+    background-color var(--transition),
+    color var(--transition),
+    border-color var(--transition);
+}
+
+.site-header.is-scrolled {
+  background: rgba(244, 242, 237, 0.97);
+  color: var(--black);
+  border-bottom-color: rgba(0, 0, 0, 0.12);
+  backdrop-filter: blur(10px);
+}
+
+.brand {
+  font-family: "Bodoni Moda", serif;
+  font-size: 1.2rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+}
+
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.75rem, 2.2vw, 2.2rem);
+}
+
+.main-nav a {
+  position: relative;
+  flex: 0 0 auto;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.main-nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -0.35rem;
+  width: 100%;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform var(--transition);
+}
+
+.main-nav a:hover::after,
+.main-nav a:focus-visible::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.intro-strip {
+  padding: calc(72px + 1.25rem) var(--side-padding) 1.25rem;
+  border-bottom: 1px solid var(--border-dark);
+  text-align: center;
+}
+
+.intro-strip p {
+  margin: 0;
+  color: var(--silver);
+  font-size: 0.72rem;
+  letter-spacing: 0.20em;
+  text-transform: uppercase;
+}
+
+.hero {
+  padding-bottom: clamp(4rem, 6vw, 8rem);
+  background: var(--black);
+}
+
+.hero-images {
+  height: 80vh;
+  min-height: 520px;
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 1.25rem;
+  padding: 0 var(--side-padding);
+}
+
+.hero-images img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.hero-title {
+  max-width: 1120px;
+  padding: clamp(3rem, 4.5vw, 5rem) var(--side-padding) 0;
+}
+
+.hero-title h1 {
+  margin: 0;
+  font-family: "Bodoni Moda", serif;
+  font-size: clamp(3.5rem, 8.5vw, 8.5rem);
+  font-weight: 400;
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+}
+
+.eyebrow {
+  margin: 0 0 1.25rem;
+  color: var(--silver-dark);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.hero .eyebrow,
+.about .eyebrow,
+.approach .eyebrow,
+.contact .eyebrow {
+  color: var(--silver);
+}
+
+.selected-weddings {
+  padding-bottom: var(--section-padding);
+  background: var(--off-white);
+  color: var(--black);
+}
+
+.section-heading {
+  display: grid;
+  grid-template-columns: 0.45fr 1.55fr;
+  align-items: end;
+  gap: 3rem;
+  padding: var(--section-padding) var(--side-padding) clamp(4rem, 6vw, 7rem);
+  border-bottom: 1px solid var(--border);
+}
+
+.section-heading h2 {
+  margin: 0;
+  font-family: "Bodoni Moda", serif;
+  font-size: clamp(2.4rem, 4.5vw, 5.2rem);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+.wedding-row {
+  display: grid;
+  grid-template-columns: 1.5fr 0.5fr;
+  border-bottom: 1px solid var(--border);
+}
+
+.wedding-row-reverse {
+  grid-template-columns: 0.5fr 1.5fr;
+}
+
+.wedding-row-reverse .wedding-images {
+  order: 2;
+}
+
+.wedding-row-reverse .wedding-copy {
+  order: 1;
+}
+
+.wedding-images {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 1rem;
+  padding: clamp(2.5rem, 4vw, 5rem);
+}
+
+.wedding-images img {
+  width: 100%;
+  height: 540px;
+  object-fit: cover;
+}
+
+.wedding-images img:nth-child(2) {
+  margin-top: 5.5rem;
+}
+
+.wedding-copy {
+  padding: clamp(3rem, 5vw, 6rem) clamp(2.5rem, 4vw, 5rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.wedding-copy h3 {
+  margin: 0 0 2.5rem;
+  font-family: "Bodoni Moda", serif;
+  font-size: clamp(2.8rem, 4vw, 5.2rem);
+  font-weight: 400;
+  line-height: 1;
+}
+
+.wedding-copy a {
+  position: relative;
+  padding-bottom: 0.5rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.wedding-copy a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  background: var(--silver);
+  transform: scaleX(0.4);
+  transform-origin: left;
+  transition: transform var(--transition);
+}
+
+.wedding-copy a:hover::after,
+.wedding-copy a:focus-visible::after {
+  transform: scaleX(1);
+}
+
+.about {
+  padding: var(--section-padding) var(--side-padding);
+  text-align: center;
+  background: var(--black);
+  color: var(--off-white);
+}
+
+.about-copy {
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.about-copy h2 {
+  margin: 0 auto 2.5rem;
+  font-family: "Bodoni Moda", serif;
+  font-size: clamp(2.8rem, 5.5vw, 6.5rem);
+  font-weight: 400;
+  line-height: 1.02;
+}
+
+.about-copy > p:not(.eyebrow) {
+  max-width: 680px;
+  margin: 0 auto;
+  color: var(--muted);
+  font-size: 1.05rem;
+}
+
+.photographer-portrait {
+  width: clamp(140px, 16vw, 220px);
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  margin: 4.5rem auto 0;
+}
+
+.approach {
+  padding: 1rem var(--side-padding) var(--section-padding);
+  border-top: 1px solid var(--border-dark);
+  background: var(--black);
+}
+
+.approach blockquote {
+  max-width: 1150px;
+  margin: 0;
+  font-family: "Bodoni Moda", serif;
+  font-size: clamp(2.8rem, 6vw, 7.5rem);
+  font-weight: 400;
+  line-height: 1.02;
+}
+
+.testimonial {
+  padding: var(--section-padding) var(--side-padding);
+  background: var(--off-white);
+  color: var(--black);
+  text-align: center;
+}
+
+.testimonial blockquote {
+  max-width: 1050px;
+  margin: 0 auto 2.5rem;
+  font-family: "Bodoni Moda", serif;
+  font-size: clamp(2.5rem, 5.2vw, 6.5rem);
+  font-weight: 400;
+  line-height: 1.1;
+}
+
+.testimonial > p {
+  margin: 0;
+  color: var(--silver-dark);
+  font-size: 0.72rem;
+  letter-spacing: 0.20em;
+  text-transform: uppercase;
+}
+
+.contact {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: clamp(4rem, 8vw, 10rem);
+  padding: var(--section-padding) var(--side-padding);
+  background: var(--black);
+}
+
+.contact-details h2 {
+  margin: 0 0 3.5rem;
+  font-family: "Bodoni Moda", serif;
+  font-size: clamp(2.6rem, 4.7vw, 5.5rem);
+  font-weight: 400;
+  line-height: 1.05;
+}
+
+.contact-details > p:not(.eyebrow) {
+  margin: 0 0 0.6rem;
+  color: var(--muted);
+}
+
+#booking-form {
+  display: grid;
+  gap: 2rem;
+}
+
+.contact label {
+  display: grid;
+  gap: 0.75rem;
+  color: var(--silver);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.contact input,
+.contact textarea {
+  width: 100%;
+  padding: 0.85rem 0;
+  border: 0;
+  border-bottom: 1px solid var(--border);
+  outline: none;
+  background: transparent;
+  color: var(--off-white);
+}
+
+.contact textarea {
+  min-height: 140px;
+  resize: vertical;
+}
+
+.contact input:focus,
+.contact textarea:focus {
+  border-bottom-color: var(--off-white);
+}
+
+.contact button {
+  width: fit-content;
+  padding: 1rem 1.6rem;
+  border: 1px solid var(--off-white);
+  background: var(--off-white);
+  color: var(--black);
+  cursor: pointer;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.17em;
+  text-transform: uppercase;
+  transition:
+    background var(--transition),
+    color var(--transition);
+}
+
+.contact button:hover,
+.contact button:focus-visible {
+  background: transparent;
+  color: var(--off-white);
+}
+
+.form-success {
+  margin: 0.5rem 0 0;
+  color: var(--silver);
+  font-size: 0.85rem;
+}
+
+.site-footer {
+  padding: 4.5rem var(--side-padding) 2.5rem;
+  display: grid;
+  grid-template-columns: 1.3fr 0.8fr 1fr 1fr;
+  gap: 3rem;
+  border-top: 1px solid var(--border-dark);
+  background: #0a0a0a;
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+.footer-brand {
+  margin: 0 0 0.5rem;
+  color: var(--off-white);
+  font-family: "Bodoni Moda", serif;
+  font-size: 1.7rem;
+}
+
+.site-footer p {
+  margin-top: 0;
+}
+
+.site-footer nav,
+.social-links {
+  display: grid;
+  gap: 0.65rem;
+}
+
+.site-footer a {
+  width: fit-content;
+  transition: color var(--transition);
+}
+
+.site-footer a:hover,
+.site-footer a:focus-visible {
+  color: var(--off-white);
+}
+
+.copyright {
+  grid-column: 1 / -1;
+  margin: 2rem 0 0;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border-dark);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 700ms ease,
+    transform 700ms ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Wedding detail pages */
+
+.wedding-page {
+  background: var(--off-white);
+  color: var(--black);
+}
+
+.wedding-page .site-header {
+  color: var(--off-white);
+}
+
+.wedding-page .site-header.is-scrolled {
+  color: var(--black);
+}
+
+.wedding-page-header {
+  padding: calc(72px + 7rem) var(--side-padding) 6rem;
+  background: var(--black);
+  color: var(--off-white);
+}
+
+.wedding-page-header .eyebrow {
+  color: var(--silver);
+}
+
+.wedding-page-header h1 {
+  margin: 0;
+  font-family: "Bodoni Moda", serif;
+  font-size: clamp(4rem, 9vw, 9rem);
+  font-weight: 400;
+  line-height: 0.95;
+}
+
+.wedding-gallery {
+  padding: clamp(3.5rem, 6vw, 7rem) var(--side-padding) var(--section-padding);
+}
+
+.wedding-gallery img {
+  width: 100%;
+  height: auto;
+  margin: 0 auto clamp(3.5rem, 6vw, 7.5rem);
+  cursor: zoom-in;
+}
+
+.wedding-gallery img:last-child {
+  margin-bottom: 0;
+}
+
+/* Lightbox */
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: grid;
+  grid-template-columns: 80px 1fr 80px;
+  grid-template-rows: 80px 1fr 80px;
+  align-items: center;
+  padding: 1rem;
+  background: rgba(5, 5, 5, 0.96);
+}
+
+.lightbox[hidden] {
+  display: none;
+}
+
+.lightbox-image {
+  grid-column: 2;
+  grid-row: 2;
+  max-width: min(84vw, 1300px);
+  max-height: 74vh;
+  width: auto;
+  height: auto;
+  margin: auto;
+  object-fit: contain;
+  background: transparent;
+}
+
+.lightbox-close,
+.lightbox-prev,
+.lightbox-next {
+  border: 0;
+  background: transparent;
+  color: var(--off-white);
+  cursor: pointer;
+  font-size: 2.2rem;
+}
+
+.lightbox-close {
+  grid-column: 3;
+  grid-row: 1;
+  justify-self: end;
+}
+
+.lightbox-prev {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.lightbox-next {
+  grid-column: 3;
+  grid-row: 2;
+}
+
+.lightbox-counter {
+  grid-column: 2;
+  grid-row: 3;
+  margin: 0;
+  color: var(--silver);
+  text-align: center;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+}
+
+@media (max-width: 900px) {
+  :root {
+    --side-padding: 1.5rem;
+  }
+
+  .site-header {
+    min-height: 68px;
+    padding: 0 1.5rem;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.45rem;
+  }
+
+  .brand {
+    font-size: 1rem;
+  }
+
+  .main-nav {
+    width: 100%;
+    justify-content: center;
+    gap: 1.1rem;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .main-nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .main-nav a {
+    font-size: 0.61rem;
+  }
+
+  .intro-strip {
+    padding-top: calc(68px + 1.25rem);
+  }
+
+  .hero-images {
+    height: 68vh;
+    min-height: 440px;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.6rem;
+  }
+
+  .hero-title h1 {
+    font-size: clamp(3.2rem, 13vw, 6rem);
+  }
+
+  .section-heading {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .wedding-row,
+  .wedding-row-reverse {
+    grid-template-columns: 1fr;
+  }
+
+  .wedding-row-reverse .wedding-images,
+  .wedding-row-reverse .wedding-copy {
+    order: initial;
+  }
+
+  .wedding-images {
+    order: 1;
+    padding: 2.5rem 1.5rem 0;
+  }
+
+  .wedding-copy {
+    order: 2;
+    padding: 2.5rem 1.5rem 4.25rem;
+  }
+
+  .wedding-images img {
+    height: clamp(280px, 55vw, 440px);
+  }
+
+  .wedding-images img:nth-child(2) {
+    margin-top: 3.25rem;
+  }
+
+  .contact {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+  }
+
+  .site-footer {
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+  }
+
+  .wedding-page-header {
+    padding-top: calc(68px + 5rem);
+  }
+
+  .lightbox {
+    grid-template-columns: 50px 1fr 50px;
+  }
+}
+
+@media (max-width: 560px) {
+  .hero-images {
+    height: 60vh;
+    min-height: 380px;
+  }
+
+  .hero-title h1 {
+    font-size: clamp(2.75rem, 14.8vw, 4.8rem);
+  }
+
+  .wedding-images {
+    gap: 0.5rem;
+  }
+
+  .wedding-images img {
+    height: 280px;
+  }
+
+  .wedding-images img:nth-child(2) {
+    margin-top: 2.5rem;
+  }
+
+  .photographer-portrait {
+    width: 140px;
+  }
+
+  .site-footer {
+    grid-template-columns: 1fr;
+  }
+
+  .copyright {
+    grid-column: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
