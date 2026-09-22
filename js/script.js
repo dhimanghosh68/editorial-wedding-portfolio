@@ -146,7 +146,7 @@
       lightbox.hidden = true;
       document.body.classList.remove("locked");
 
-      lightboxImage.src = "";
+      lightboxImage.src = "assets/images/lightbox-placeholder.svg";
       lightboxImage.alt = "";
 
       if (
