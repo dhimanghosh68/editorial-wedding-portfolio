@@ -85,3 +85,20 @@ Verified:
 - booking-form demonstration
 
 Local visual QA passed.
+
+## 2026-09-22 — GitHub Pages deployment
+
+GitHub repository:
+https://github.com/dhimanghosh68/editorial-wedding-portfolio
+
+GitHub Pages:
+https://dhimanghosh68.github.io/editorial-wedding-portfolio/
+
+Verified public HTTP 200:
+- homepage
+- City Wedding
+- Estate Wedding
+- Coastal Wedding
+
+Deployment state:
+LIVE
