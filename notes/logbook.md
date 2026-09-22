@@ -66,3 +66,22 @@ Sources and license information are recorded in:
 notes/image-sources.md
 
 The published site does not depend on remote image URLs.
+
+## 2026-09-22 — Final local QA
+
+Verified:
+- homepage
+- City Wedding page
+- Estate Wedding page
+- Coastal Wedding page
+- internal links
+- local image assets
+- image alt text
+- JavaScript syntax
+- CSS structure
+- HTTP serving
+- responsive browser behavior
+- wedding lightbox
+- booking-form demonstration
+
+Local visual QA passed.
