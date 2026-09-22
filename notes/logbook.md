@@ -50,3 +50,19 @@ Added:
 Photography remains pending.
 
 Final deployment state and public GitHub Pages URL will be recorded here after deployment.
+
+## 2026-09-22 — Photography assets
+
+Added 21 locally stored wedding/photography assets:
+
+- 2 hero photographs
+- 6 City Wedding photographs
+- 6 Estate Wedding photographs
+- 6 Coastal Wedding photographs
+- 1 photographer portrait
+
+Sources and license information are recorded in:
+
+notes/image-sources.md
+
+The published site does not depend on remote image URLs.
